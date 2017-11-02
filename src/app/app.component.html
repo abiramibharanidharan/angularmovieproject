@@ -1,3 +1,81 @@
-<h1>
-  {{title}}
-</h1>
+<!--list of movies and select the movie to display the detail-->
+<div *ngIf="!addmovie">
+    <h1> {{title}} </h1>
+  
+ <ul class="movies">
+    <li *ngFor="let movie of movies"
+           [class.selected]="movie === selectedMovie"
+           (click)="onSelect(movie)">
+           <span class="badge">{{movie.movieName}}</span> 
+    </li>
+ </ul>
+ <div>
+     <button class="btn btn-custom" (click)="add()">Add Movie</button>
+ </div>
+</div>
+<!-- to get the input of movie to added-->
+<div *ngIf="addmovie">
+     <h1>Add Movie</h1>
+
+ <form #f="ngForm" novalidate autocomplete="off" 
+       (ngSubmit)="addMovies(f.value)">
+    <div class="form-group">
+        <label> Movie Name:</label>
+            <input type="text" [(ngModel)]="movieName" name="movieName" class="form-control" placeholder="MovieName" required
+                  #reffirst='ngModel' pattern="^[a-zA-Z]*$" maxlength="15" minlength="1">
+            <div *ngIf="reffirst.errors && (reffirst.dirty || reffirst.touched)" class="alert alert-danger">
+              <div [hidden]="!reffirst.errors.required">
+                              Name is required.
+              </div>
+              <div [hidden]="!reffirst.errors.minlength">
+                              Please enter atleast 2 characeters.
+               </div>
+                <div [hidden]="!reffirst.errors.pattern">
+                      Please enter alphabets.
+                </div>
+           </div>
+    </div>
+    <div class="form-group">
+        <label>Description:</label>
+            <input type="text" [(ngModel)]="movieDescription" name="movieDescription" id="description" class="form-control" placeholder="Movie Description"
+                  #redescription='ngModel'>
+    </div>
+
+    <div class="form-group"  >
+        <label>Rating:</label>
+            <input type="text" [(ngModel)]="movieRating" name="movieRating" id="movieRating" class="form-control" placeholder="Rating "
+                required #reflast='ngModel' pattern="^[*]*$" maxlength="5"
+                (keyup)="colors(movieRating.length)"[ngStyle]="{'background-color':background_color}" myMovie1Directive>
+               
+            <div *ngIf="reflast.errors && (reflast.dirty || reflast.touched)" class="alert alert-danger">
+              <div [hidden]="!reflast.errors.required">
+                Rating  is required.
+              </div>
+              <div [hidden]="!reflast.errors.maxlength">
+                 More then 5 is not valied.
+              </div>
+              <div [hidden]="!reflast.errors.pattern">
+                Please Rate using * .
+              </div>
+           </div>
+    </div>
+
+    <div class="form-group">
+        <label>Release Date</label>
+            <input type="date" [(ngModel)]="ReleaseDate" name="ReleaseDate" id="ReleaseDate" class="form-control" placeholder=" Enter date(mm/dd/yyyy) "
+                required #refdat='ngModel' pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" >
+               <div *ngIf="refdat.errors?.date">
+                    Enter date
+               </div>
+               <div *ngIf="refdat.errors && (refdat.dirty || refdat.touched)" class="alert alert-danger">
+                  <div [hidden]="!refdat.errors.required">
+                      Date is required.
+                  </div>
+               </div>
+    </div>
+         <button type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block"  [disabled]="f.invalid" >Add</button>
+         <input type="button" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Reset" (click)="resetForm()" >
+  </form>
+</div>          
+<!-- to call the movielist component to display the movie -->
+    <movie-list [movie]="selectedMovie"></movie-list>

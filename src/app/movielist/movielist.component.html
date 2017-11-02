@@ -1,0 +1,28 @@
+<div *ngIf="movie" >
+  <span class="media-meta">
+  <h2 myMovieDirective>{{movie.movieName}} details!</h2>
+       <div *ngIf="movie.image" class="title" myMovieDirective>
+        <img [src]="movie.image" class="media-photo" >
+     </div>
+    <div myMovieDirective>
+        <label >Name: </label>
+         {{movie.movieName}}
+    </div>
+    <div myMovieDirective>
+        <label >Rating: </label>
+         {{movie.movieRating}}
+    </div>
+    <div myMovieDirective>
+        <label>Date: </label>
+        {{movie.ReleaseDate}}
+    </div>
+    <div myMovieDirective>
+        <label>Description:</label>
+         {{movie.movieDescription}}
+    </div>
+   
+  </span>
+</div>
+
+
+

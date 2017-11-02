@@ -1,0 +1,29 @@
+ .media-photo {
+    width: 50%;
+    float:right;
+}
+ .media .title {
+    color: #2BBCDE;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: normal;
+    margin: 0;
+    
+}
+ .media-meta {
+    
+    font-size: 20px;
+    color:maroon;
+    margin-bottom: 20px;
+    width:30%;
+    left:100%;
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+    margin-top:auto;
+}
+
+h2 {
+    text-align:center;
+    color:maroon;
+  } 

@@ -1,0 +1,97 @@
+.selected {
+    background-color: #CFD8DC !important;
+    color:blueviolet;
+  }
+  h1 {
+    text-align:center
+  } 
+  
+.movies {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 15em;
+  }
+
+  .movies li {
+    cursor: pointer;
+    position: relative;
+    left: 270%;
+    background-color:#607D8B;
+    margin: .5em;
+    padding: .3em 0;
+    
+    height: 1.6em;
+    border-radius: 4px;
+    text-align: center;
+    
+  }
+  .movies li.selected:hover {
+    background-color:blueviolet !important;
+    color: blue;
+  }
+  .movies li:hover {
+    color: #607D8B;
+    background-color:blueviolet;
+    left: 270%;
+  }
+  .movies ul
+  {
+    margin:0;
+    padding-left:30% ;
+    text-align: center;
+    list-style:none;
+    left:100%   
+  }
+
+  .movies .text {
+    position: relative;
+    top: -3px;
+  }
+  .movies .badge {
+    display: inline-block;
+    font-size: small;
+    color: blue;
+    padding: 0.8em 0.7em 0 0.7em;
+    background-color: #EEE;
+    line-height: 1em;
+    position: relative;
+    left: -1px;
+    top: -4px;
+    height: 1.8em;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+  }
+  .form-control {
+    color: #212121;
+  }
+
+  .btn-custom {
+    color: #fff;
+    background-color: #1fa67b;
+  }
+
+.btn-custom:hover,
+.btn-custom:focus {
+    color: blueviolet;
+  }
+   .form-group {
+    margin-bottom: 25px;
+     width: 30%;
+    margin: 0 auto;
+
+}
+   .btn.btn-custom {
+    font-size: 14px;
+    margin-bottom: 20px;
+    width:30%;
+    left:100%;
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+    margin-top:auto;
+     
+}
+
+
+
